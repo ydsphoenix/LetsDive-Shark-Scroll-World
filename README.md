@@ -99,4 +99,5 @@ If the project sits in an iCloud-synced folder (Desktop, Documents), macOS can c
 
 **Licence**
 
-- No licence has been chosen yet. All rights reserved until one is added.
+- The code (`index.html`, `css/`, `js/`) is released under the [MIT licence](LICENSE).
+- The MIT licence does **not** cover the art, video, frames or audio in `assets/` or `docs/`. Those are AI-generated or third-party-restricted (see above) and are not licensed for reuse.
