@@ -1,47 +1,102 @@
-# Shark ScrollWorld
+# Let's Dive — Shark ScrollWorld
 
-**Created by Yuki Jurado**
+A scroll-driven watercolor journey from a sunlit reef into the deep ocean.
 
-- **Live website:** [Let's Dive](https://cheery-monstera-926d1b.netlify.app/)
-- **GitHub repository:** [LetsDive-DevAssignment-2](https://github.com/YukiJurado/LetsDive-DevAssignment-2)
-- **Research and process book:** [View the illustrated PDF](docs/Lets-Dive-research-and-making.pdf)
+<!-- TODO: add a screenshot or GIF at assets/readme/preview.gif (the image does not exist yet). -->
+![Preview of Let's Dive](assets/readme/preview.gif)
 
-A mostly wordless, scroll-driven watercolor journey from a sunlit reef into the deep ocean. Visitors put on a diving mask, meet sharks as the water grows darker, and discover a megalodon fossil that sparks a brief ancient vision.
+**[Live demo](https://cheery-monstera-926d1b.netlify.app/)** <!-- TODO: update this link when the Netlify site is renamed. -->
 
-This repository contains a reversible scroll journey through the complete planned story: the diving-mask intro, a blacktip swimming across the reef, animated transitions to whale sharks and a hammerhead, then the great white, sixgill, megalodon fossil, ancient vision, and quiet return. Open `index.html` in a browser and scroll down or back up to preview it. The user's hammerhead-to-great-white and great-white-to-sixgill videos carry the middle of the journey; a Seedance continuation follows the sixgill from above as it swims past the fossil tooth. [`docs/storyboard.md`](docs/storyboard.md) records the intended shots.
+## About
 
-The four files to read are `index.html` (scene layers and page chrome), `css/style.css` (their appearance), `js/app.js` (scroll timing, animation frames, and optional sound), and `js/site.js` (the entry gate, chapter links, depth gauge, and back-to-surface button). The HTML loads the CSS in `<head>` and loads the JavaScript after the scene markup. Image and media files live in `assets/`. For a local preview, open `index.html` directly or use the VS Code Live Server extension (no Python or build step is needed).
+- A mostly wordless story. Scroll down to dive, scroll up to go back.
+- You put on a diving mask and meet sharks as the water grows darker.
+- At the bottom you find a megalodon fossil that sparks a brief ancient vision.
+- Originally built for Dev Assignment 2 at Thomas More University of Applied Sciences.
 
-The preview uses GSAP ScrollTrigger when its CDN scripts are available and falls back to native scroll progress when offline. A short scroll glide and eased watercolor dissolves smooth both directions. It respects reduced-motion preferences by showing three still views. The animation clips use JPEG frames painted onto a canvas that follows scroll position in either direction, so scrolling back does not flash or glitch; their source MP4s are kept in `assets/video/` for reference. Sound is optional and begins only after the visitor chooses "Dive in with sound" on the entry gate or presses the top-right sound button. It is layered: a sunlit score that gives way to an eerie deep score as the water darkens, two ambience loops, and one-shot effects (splash, shark glide, the great white feeding, a soft megalodon roar as the jaws open, ink impact, and a softer megalodon pass during the pull-back). See "Sound design" in [`docs/production-notes.md`](docs/production-notes.md).
+**Story order:** diving mask and dive → blacktip reef shark → whale sharks → hammerheads → great white (including its feeding among the fish) → top-view sixgill → fossil tooth → megalodon mouth → the fossil pulls back as a giant shape passes → fin.
 
-## Website feel
+## Features
 
-The page opens on an entry gate instead of dropping straight into the scene: a frosted pane over the painted surface with the title “Let’s Dive”, a short line (“Six sharks. One breath.”), rising bubbles, a loading bar (“Filling your tank…”) and two choices, “Dive in with sound” or “Dive in quietly”. The choice also answers the sound opt-in, so the visitor never has to find the speaker button. Once inside, a header carries the wordmark and chapter links (Surface, Reef, Open water, The deep, The ancient, Fin) that jump to that point of the journey and highlight the current chapter, and a depth gauge down the right edge shows a live “story depth” (0 m at the surface to 4,000 m at the end; these depths are for the story, not measurements). After “fin”, a closing section says thank you, has a “Back to the surface” button, and credits the tools. The gate never traps a visitor: it opens anyway after 12 seconds, or right away when reduced motion is on.
+- **Reversible scroll story.** Animation clips are JPEG frames painted onto a canvas that follows scroll position in both directions. Scrolling back never flashes or glitches.
+- **Smooth motion.** A short scroll glide and eased watercolor dissolves.
+- **Entry gate.** A frosted pane with the title, rising bubbles, a loading bar and two choices: "Dive in with sound" or "Dive in quietly". It opens anyway after 12 seconds, so it never traps a visitor.
+- **Chapter links.** Surface, Reef, Open water, The deep, The ancient, Fin. They jump to that point and highlight the current chapter.
+- **Depth gauge.** A live "story depth" down the right edge, from 0 m to 4,000 m. The depths belong to the story; they are not measurements.
+- **Back-to-surface button.** A closing section says thank you and returns the visitor to the top.
+- **Layered sound (opt-in).** A sunlit score that gives way to an eerie deep score, two ambience loops and one-shot effects. Sound starts only when the visitor chooses it.
+- **Reduced motion.** Three still views replace the animation, and the gate opens right away.
+- **Works offline.** Falls back to native scroll progress when the GSAP CDN scripts are unavailable.
 
-## Story order
+## Built with
 
-Diving mask and dive → blacktip reef shark → whale sharks → hammerheads → great white (including its feeding among the fish) → top-view sixgill → fossil tooth → megalodon mouth → the fossil pulls back as a giant shape passes → fin.
+- HTML, CSS and JavaScript (no build step)
+- [GSAP](https://gsap.com/) and ScrollTrigger (loaded from a CDN)
+- Canvas frame playback
+- HTML Audio elements for the sound layers
 
-The opening is hand-painted watercolor; the deep-water shots and the ending are dark and cinematic. Each shark gets a short magical caption as it appears. The opening mask carries “lets dive!” and the ending says “fin” in a cinematic title with scope bars and film grain; there is no narration. The megalodon is an ancient vision, not a living shark in the present-day ocean. The fossil in the vision is the exact frame held at the end of the sixgill shot. It lingers in near silence before the water goes black and the mouth lunges forward in a short scroll interval; afterwards the camera pulls back from the same fossil while a colossal silhouette glides past and the screen fades to black.
+## My role
 
-## Current status
+<!-- TODO: Yuki, please check and edit this list. -->
 
-- The full story is navigable and fully animated: an intro dive from the surface into the reef, the user-supplied blacktip reef animation, two 12-second transition tests, the user-supplied hammerhead-to-great-white and great-white-to-sixgill animations (the great white feeding was restyled to match the hammerhead and great white), a Seedance seabed continuation, a photographic megalodon jumpscare and pull-back that start on the sixgill shot's fossil frame, shark captions, and five sound effects. Water darkens, particles thin, and the ambience quiets around the ancient vision.
-- The video and deeper scenes are production tests. Review pacing and transitions during slow, fast, and reverse scrolling before producing frame-matched animation for the deeper sharks.
-- Prompt-production references and continuity rules are recorded in [`docs/production-notes.md`](docs/production-notes.md).
+- Concept and story
+- Storyboard
+- Art direction
+- Scroll and animation code: GSAP ScrollTrigger, canvas frame playback
+- UI: entry gate, chapter links, depth gauge, back-to-surface button
+- Accessibility: reduced motion, opt-in sound
 
-Visual prompts and intro decisions are recorded in [`docs/intro-art-prompts.md`](docs/intro-art-prompts.md). The illustrations were created with Codex's built-in image generation tool. The first two video tests and sound effects were generated with Magnific; the blacktip reef and hammerhead-to-great-white animations were supplied by the user.
+## Process
 
-The project-specific [Magnific ScrollWorld skill](.agents/skills/magnific-scrollworld/SKILL.md) describes how to review keyframes, prompt, settings, and estimated credits before producing a transition. Its [great-white feeding bridge example](.agents/skills/magnific-scrollworld/references/great-white-feeding-bridge.md) records the failed crossfade, the finished bridge, and the later feeding restyle.
+- [Storyboard](docs/storyboard.md): the intended shots, from the mask to the fin.
+- [Production notes](docs/production-notes.md): prompts, timings, continuity rules and sound design.
+- [Intro art prompts](docs/intro-art-prompts.md): visual and scroll decisions for the diving-mask intro.
+- [Research and making (PDF)](docs/Lets-Dive-research-and-making.pdf): the illustrated research book.
+- [Magnific ScrollWorld skill](.agents/skills/magnific-scrollworld/SKILL.md): the workflow notes used to review and produce shark transitions.
 
-## Change log
+## Run locally
 
-- **Latest:** a soundtrack that moves from a sunlit score to an eerie deep score, plus new sound effects for the great white feeding and the megalodon (the old lunge sound had a gasp in it and was replaced by a soft roar) (see Sound design in the production notes); the great white now turns into the feeding scene through a short bridge clip instead of a crossfade, so the handoff no longer shows two sharks at once; an entry gate, header with chapter links, live depth gauge, closing section with credits and a back-to-surface button (new `js/site.js`); intro dive video replaces the zooming stills; the great white feeding is visible again with its own scroll time and a restyled, smoother look; the megalodon ending is rebuilt in the same dark photographic look as the sixgill shot's fossil tooth; each shark has a magical caption; "fin" is a cinematic title card; video frames are drawn on a canvas so scrolling back cannot glitch. Details and file names are in [`docs/production-notes.md`](docs/production-notes.md).
+No build step, no Python.
 
-## Working in this folder
+1. Clone the repository.
+2. Open `index.html` in a browser, or use the VS Code Live Server extension.
+3. Scroll down and back up.
 
-If the project lives in a folder that iCloud Desktop sync watches, macOS can create duplicate conflict copies of the many frame files (for example `frame-001 2.jpg`). They are identical copies and are not used by the page. `.gitignore` keeps them out of commits, and they are safe to delete. Keeping the project outside the Desktop and Documents folders avoids them completely.
+Where to look:
 
-## Audio credits and terms
+- `index.html`: scene layers and page chrome
+- `css/style.css`: appearance
+- `js/app.js`: scroll timing, animation frames, optional sound
+- `js/site.js`: entry gate, chapter links, depth gauge, back-to-surface button
+- `assets/`: images, video, frames and audio
 
-The two music tracks were generated with ElevenLabs Music v2 through Magnific's Music Generator, and the effects with ElevenLabs Text to Sound v2 through Magnific's Sound Effect Generator. Magnific's music terms say generated music may not be shared on music streaming platforms (Spotify, Apple Music and similar) and carry other restrictions on outputs and inputs; this site uses the music only as its own background score. Read Magnific's AI Products Terms and ElevenLabs' terms before using the tracks anywhere else.
+If the project sits in an iCloud-synced folder (Desktop, Documents), macOS can create duplicate copies such as `frame-001 2.jpg`. They are not used by the page and `.gitignore` keeps them out of commits. They are safe to delete.
+
+## Credits & licences
+
+**My own work**
+
+- Concept, story and storyboard
+- Art direction and prompt writing
+- All code in `index.html`, `css/` and `js/`
+- Editing, sequencing and integration of all assets
+
+**AI-generated assets**
+
+- **Illustrations and key art:** made with the built-in image tool in Codex (OpenAI).
+- **Video clips and sound effects:** made with Magnific. Some clips were produced with a Seedance continuation. <!-- TODO: confirm which clips were made in Magnific and which were made by you outside it. -->
+- **Music (2 tracks) and sound effects:** generated with ElevenLabs (Music v2 and Text to Sound v2) through Magnific's Music Generator and Sound Effect Generator.
+
+**Music usage restrictions**
+
+- Magnific's terms say generated music may not be shared on music streaming platforms (Spotify, Apple Music and similar). Other restrictions on outputs and inputs also apply.
+- This site uses the music only as its own background score.
+- Read Magnific's AI Products Terms and ElevenLabs' terms before using the tracks anywhere else.
+
+**Libraries**
+
+- GSAP and ScrollTrigger, used under GSAP's own licence.
+
+**Licence**
+
+- No licence has been chosen yet. All rights reserved until one is added.
