@@ -5,7 +5,7 @@ A scroll-driven watercolor journey from a sunlit reef into the deep ocean.
 <!-- TODO: add a screenshot or GIF at assets/readme/preview.gif (the image does not exist yet). -->
 ![Preview of Let's Dive](assets/readme/preview.gif)
 
-**[Live demo](https://cheery-monstera-926d1b.netlify.app/)** <!-- TODO: update this link when the Netlify site is renamed. -->
+**[Live demo](https://sharkscrollworld.vercel.app/)**
 
 ## About
 
